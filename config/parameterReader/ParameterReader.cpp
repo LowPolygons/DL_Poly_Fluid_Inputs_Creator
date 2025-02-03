@@ -31,9 +31,6 @@ auto ParameterReader::splitLengthsAndDefaults(std::unordered_map<std::string, st
     "levcfg",
     "imcon",
     "numparticles",
-    //"vx",
-    //"vy",
-    //"vz",
     "v1x",
     "v1y",
     "v1z",
@@ -45,9 +42,6 @@ auto ParameterReader::splitLengthsAndDefaults(std::unordered_map<std::string, st
     "v3z",
     "particleType",
     "index",
-    //"pos_rand_seed",
-    //"vel_rand_seed",
-    //"fce_rand_seed"
   };
 
   //If a value doesn't have a default add the key to this string surrounded by "- [var] -"

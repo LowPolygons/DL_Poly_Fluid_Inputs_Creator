@@ -41,7 +41,7 @@ auto MoleculePlacer::ConfirmGridFitsMoleculeCount() -> bool {
     success = false;
     double neededMultiplier = grid[0]*maxBound*2*boundMultiplier / (vec1[0]+vec2[0]+vec3[0]);
 
-    std::cout << "[Error] The system is too dense in the X axis. Consider multiplying the X components of your cell vectors by at least" << neededMultiplier << std::endl;
+    std::cout << "[Error] The system is too dense in the X axis. Consider multiplying the X components of your cell vectors by at least more than " << neededMultiplier << std::endl;
   }
 
   //Check Y Axis
@@ -49,7 +49,7 @@ auto MoleculePlacer::ConfirmGridFitsMoleculeCount() -> bool {
     success = false;
     double neededMultiplier = grid[1]*maxBound*2*boundMultiplier / (vec1[1]+vec2[1]+vec3[1]);
 
-    std::cout << "[Error] The system is too dense in the Y axis. Consider multiplying the Y components of your cell vectors by at least" << neededMultiplier << std::endl;
+    std::cout << "[Error] The system is too dense in the Y axis. Consider multiplying the Y components of your cell vectors by at least more than " << neededMultiplier << std::endl;
   }
 
   //Check Z Axis
@@ -57,7 +57,7 @@ auto MoleculePlacer::ConfirmGridFitsMoleculeCount() -> bool {
     success = false;
     double neededMultiplier = grid[2]*maxBound*2*boundMultiplier / (vec1[2]+vec2[2]+vec3[2]);
 
-    std::cout << "[Error] The system is too dense in the Z axis. Consider multiplying the Z components of your cell vectors by at least" << neededMultiplier << std::endl;
+    std::cout << "[Error] The system is too dense in the Z axis. Consider multiplying the Z components of your cell vectors by at least more than " << neededMultiplier << std::endl;
   }
 
   //Close program after all logging

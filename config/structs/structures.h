@@ -1,8 +1,12 @@
-#ifndef CONFIG_STRUCTURES
-#define CONFIG_STRUCTURES
+#ifndef PROGRAMME_STRUCTURES
+#define PROGRAMME_STRUCTURES
 
 #include <iostream>
 #include <array>
+
+//---------------------------//
+//          Config           // 
+//---------------------------//
 
 //Taken from DL_POLY docs
 enum LEVCFG {
@@ -47,6 +51,7 @@ struct ConfigParameters {
 };
 
 //Contains the default values for each item when in the final confg file
+//TODO: either implement this, or it is redundant
 struct ConfigDefaults {
   std::string description;
   LEVCFG levcfg;
@@ -58,4 +63,21 @@ struct ConfigDefaults {
   std::array<double, 3> vec3;
   std::string particleType;
 };
+
+
+//---------------------------//
+//           Field           // 
+//---------------------------//
+
+//Taken from DL_POLY docs
+//This is redundant as it expects words in the field file, but its a reminder
+//TODO: Implement properly
+enum UNITS {
+  EV = 1,      //Electron Volts
+  KCAL = 2,    //KCAL per Mol
+  KJ = 3,      //KJ per Mol
+  K = 4,       //Kelvin per Boltzmann
+  INTERNAL = 0 //DL_POLY Internal units (10J/Mol)
+};
+
 #endif
