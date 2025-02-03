@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <array>
+#include <unordered_map>
 
 //---------------------------//
 //          Config           // 
@@ -70,14 +71,23 @@ struct ConfigDefaults {
 //---------------------------//
 
 //Taken from DL_POLY docs
-//This is redundant as it expects words in the field file, but its a reminder
-//TODO: Implement properly
 enum UNITS {
   EV = 1,      //Electron Volts
   KCAL = 2,    //KCAL per Mol
   KJ = 3,      //KJ per Mol
   K = 4,       //Kelvin per Boltzmann
   INTERNAL = 0 //DL_POLY Internal units (10J/Mol)
+};
+
+//The chosen implementation for the units enum
+//Uses inline, as without it this variable suffers a redefinition issue
+//Could instead used `extern` and then implement the data in a separate C++ file but this is neater
+inline std::unordered_map<UNITS, std::string> UNITS_STRINGS = {
+  {UNITS::EV, "eV"},
+  {UNITS::KCAL, "kcal"},
+  {UNITS::KJ, "kj"},
+  {UNITS::K, "k"},
+  {UNITS::INTERNAL, "internal"}
 };
 
 #endif

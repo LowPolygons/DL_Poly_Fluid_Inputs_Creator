@@ -15,7 +15,6 @@
 
 #include "../parameters/Inputs.h"
 
-//TODO: Restructure this to make congnitive sense
 int main () {
   ConfigInputs inputs;
   //Run a validator on the inputs to ensure the certain conditions are met (log all issues before closing)
