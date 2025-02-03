@@ -3,7 +3,7 @@
 #define LINE_CREATOR
 
 #include "../structs/structures.h"
-#include "../finalConfigWriter/configWriter.h"
+#include "../writer/Writer.h"
 #include <iostream>
 #include <array>
 #include <vector>
@@ -34,7 +34,7 @@ public:
   }
 
   //The overseeing function which will calls all other methods necessary to save the file
-  auto CreateLines(ConfigWriter& writer) -> void; 
+  auto CreateLines(Writer& writer) -> void; 
 
   //Cast each data type to a string, then pass to this which does the correct formatting
   auto formatter(int size, std::string var) -> std::string;

@@ -6,7 +6,7 @@
 
 #include "../structs/structures.h"
 #include "LineCreator.h"
-#include "../finalConfigWriter/configWriter.h"
+#include "../writer/Writer.h"
 
 //TODO: IMPLEMENT DEFAULTS IN THE EVENT OF NO DATA
 
@@ -104,32 +104,32 @@ auto LineCreator::Force(int index) -> std::string {
 }
 
 //Pointer passed, therefore doesn't need a return type. Helps prevent otherwise redundant code
-auto LineCreator::CreateLines(ConfigWriter& writer) -> void {
+auto LineCreator::CreateLines(Writer& writer) -> void {
   //Description
-  writer.addConfigLine(Description());
+  writer.addLine(Description());
   //Levcfg, imcon, num NumParticles
-  writer.addConfigLine(Levcfg()+Imcon()+NumParticles());
+  writer.addLine(Levcfg()+Imcon()+NumParticles());
  
-  auto unitVectors = Axis();
-  //Unit vectors
-  writer.addConfigLine(unitVectors[0]);
-  writer.addConfigLine(unitVectors[1]);
-  writer.addConfigLine(unitVectors[2]);
+    auto unitVectors = Axis();
+    //Unit vectors
+    writer.addLine(unitVectors[0]);
+    writer.addLine(unitVectors[1]);
+    writer.addLine(unitVectors[2]);
 
-  //Each particle 
-  for (int i = 0; i < numParticles; i++) {
-    // Particle type, index
-    writer.addConfigLine(ParticleAndIndex(i));
-    // Position
-    writer.addConfigLine(Position(i));
+    //Each particle 
+    for (int i = 0; i < numParticles; i++) {
+      // Particle type, index
+      writer.addLine(ParticleAndIndex(i));
+      // Position
+      writer.addLine(Position(i));
 
-    if (levcfg != 0) {
-      // Velocities
-      writer.addConfigLine(Velocity(i));
+      if (levcfg != 0) {
+        // Velocities
+        writer.addLine(Velocity(i));
 
-      if (levcfg == 2) {
-        // Forces
-        writer.addConfigLine(Force(i));
+        if (levcfg == 2) {
+          // Forces
+        writer.addLine(Force(i));
       }
     }
   }

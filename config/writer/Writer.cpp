@@ -1,4 +1,4 @@
-#include "ConfigWriter.h"
+#include "Writer.h"
 
 #include <iostream>
 #include <vector>
@@ -6,14 +6,14 @@
 #include <fstream>
 #include <stdlib.h>
 
-auto ConfigWriter::ConfigLines() -> std::vector<std::string> { return configLines; }
-auto ConfigWriter::FilePath()    -> std::string              { return filePath; }
+auto Writer::GetLines() -> std::vector<std::string> { return lines; }
+auto Writer::FilePath()    -> std::string              { return filePath; }
 
-auto ConfigWriter::addConfigLine(std::string line) -> void {
-  configLines.push_back(line);
+auto Writer::addLine(std::string line) -> void {
+  lines.push_back(line);
 }
 
-auto ConfigWriter::writeConfigFile() -> bool {
+auto Writer::writeFile() -> bool {
   std::filesystem::path targetPath(filePath);
 
   if ( std::filesystem::exists(targetPath) ) {
@@ -24,20 +24,20 @@ auto ConfigWriter::writeConfigFile() -> bool {
     }
   }
 
-  std::ofstream configOutput(targetPath);
+  std::ofstream output(targetPath);
 
   //check it was created correctly
-  if (!configOutput) {
+  if (!output) {
     std::cout << "[Error] There was an issue trying to create a new config file" << std::endl;
     return false;
   }
 
   //loop through lines and write to file
-  for (std::string currLine : configLines) {
-    configOutput << currLine << std::endl;
+  for (std::string currLine : lines) {
+    output << currLine << std::endl;
   }
 
-  configOutput.close();
+  output.close();
 
   //if it reached here, it passed
   return true;

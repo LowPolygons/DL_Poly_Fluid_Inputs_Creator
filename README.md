@@ -16,6 +16,7 @@ For more general control over the inputs, navigate to `parameters` and modify th
 ### TODO
 - Redo the file structure to be more generalised
 - Resolve Inline TODOs (colon, space, f, w, to grep search in nvim)
+- Implement a new main.cpp file which allows the field related things to get data from the config side of thing
 
 ### Naming Conventions
 

@@ -3,7 +3,7 @@
 
 #include "structs/structures.h"
 #include "parameterReader/ParameterReader.h"
-#include "finalConfigWriter/configWriter.h"
+#include "writer/Writer.h"
 #include "xyzGenerator/XyzGenerator.h"
 #include "lineCreator/LineCreator.h"
 #include "configOrganiser/ConfigOrganiser.h"
@@ -160,9 +160,8 @@ int main () {
     }
   }
 
-
-  //Config Line Creator and Writer here
-  auto writer = ConfigWriter("results/config.txt");
+  //Line Creator and Writer here
+  auto writer = Writer("results/config.txt");
   
   LineCreator creator(
     organiser.WidthsInFile(), 
@@ -181,7 +180,7 @@ int main () {
   );
 
   creator.CreateLines(writer);
-  writer.writeConfigFile();
+  writer.writeFile();
 
   return 0;
 }

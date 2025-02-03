@@ -4,7 +4,7 @@
 
 #include "../structs/structures.h"
 #include "../parameterReader/ParameterReader.h"
-#include "../finalConfigWriter/configWriter.h"
+#include "../writer/Writer.h"
 #include "../lineCreator/LineCreator.h"
 #include "../XYZGenerator/xyzGenerator.h"
 
