@@ -1,0 +1,14 @@
+//Local index:atom=cartesian position (try keep around zero. Ideally pick one particle to be at the origin and everything will rotate about that particle)
+//the first uncommented line MUST be Atoms=Number
+
+Atoms=3
+
+//Possibly may need to add a Bonds=val 
+0:H=1.0000,0.0000,0.0000
+1:O=0.0000,0.0000,0.0000
+2:H=-0.3090,0.9510,0.0000
+
+//LocalIndex->LocalIndex it bonds to
+0->1
+1->2
+19->48

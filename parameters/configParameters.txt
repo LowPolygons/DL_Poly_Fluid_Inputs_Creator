@@ -1,0 +1,46 @@
+First line is ignored => title=characterLength:defaultValue
+description=45:Default Description
+levcfg=5:0
+imcon=5:3
+//In an eventual refactor, this will be the number of molecules instead
+numparticles=7:0
+
+//First unit vector
+v1x=16:1.00000
+v1y=16:0.00000
+v1z=16:0.00000
+
+//2nd unit vector
+v2x=16:0.00000
+v2y=16:1.00000
+v2z=16:0.00000
+
+//3rd unit vector
+v3x=16:0.00000
+v3y=16:0.00000
+v3z=16:0.00000
+
+//Positions
+posx=16:0.00000
+posy=16:0.00000
+posz=16:0.00000
+
+//Velocities
+velx=16:0.00000
+vely=16:0.00000
+velz=16:0.00000
+
+//Forces
+fcex=16:0.00000
+fcey=16:0.00000
+fcez=16:0.00000
+
+particleType=5:TEMP
+index=8
+
+//Random seeds for each number generator, These will be moved to a different file
+// MOVE TO THE INPUTS HEADER FILE 
+rand_seed=10
+pos_rand_seed=10
+vel_rand_seed=11
+fce_rand_seed=12
