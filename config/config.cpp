@@ -15,15 +15,10 @@
 
 #include "../parameters/Inputs.h"
 
-int main () {
-  ConfigInputs inputs;
-  //Run a validator on the inputs to ensure the certain conditions are met (log all issues before closing)
-  InputVerifier inputValidator(inputs);
-  inputValidator.ConductValidation();
+#include "config.h"
 
-  //General use class to neaten up the main file, initialise the description
-  ConfigOrganiser organiser;
-  
+auto initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
+  //Description read straight from inputs
   organiser.set_description(inputs.description);
 
   //Input the cell vectors into the organiser
@@ -44,7 +39,9 @@ int main () {
   //Load the ENUM vals into the organiser
   organiser.set_levcfg(inputs.levcfg);
   organiser.set_imcon(inputs.imcon);
+}
 
+auto generateMolecules(ConfigInputs& inputs, ConfigOrganiser& organiser) -> std::vector<Molecule> {
   //Takes the molecule file names and turns them into Molecule templates
   MoleculeConstructor molCon(inputs.molecules);
   molCon.GenerateMolecules();
@@ -57,6 +54,10 @@ int main () {
     moleculeVector.push_back(moleculeList[name]);
   }
 
+  return moleculeVector;
+}
+
+auto getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser, std::vector<Molecule> moleculeVector) -> void {
   //Switch statement for position generation
   XyzGenerator position(organiser.Vectors(), inputs.numOfMolecules);
   
@@ -113,7 +114,9 @@ int main () {
       break;
     }
   }
+}
 
+auto getVelocityValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
   //One for Velocities
   XyzGenerator velocity({inputs.vel_minimum, inputs.vel_maximum, { 0.0, 0.0, 0.0 }}, organiser.NumParticles());
 
@@ -136,8 +139,9 @@ int main () {
       break;
     }
   }
+}
 
-  //One for Forces
+auto getForceValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
   XyzGenerator force({inputs.fce_minimum, inputs.fce_maximum, { 0.0, 0.0, 0.0 }}, organiser.NumParticles());
 
   switch (inputs.gen_velocity) {
@@ -146,7 +150,7 @@ int main () {
       std::cout << "[Warn]  Uniform generation for forces doesn't make sense" << std::endl;
       
       organiser.set_forces(force.uniform());
-
+      
       break;
     }
     case (XYZGEN::RANDOM_UNIFORM): {
@@ -159,30 +163,4 @@ int main () {
       break;
     }
   }
-
-  //Line Creator and Writer here
-  auto writer = Writer("results/config.txt");
-  
-  LineCreator creator(
-    organiser.WidthsInFile(), 
-    organiser.Defaults(),
-    organiser.Description(),
-    organiser.Levcfg(),
-    organiser.Imcon(),
-    organiser.NumParticles(),
-    organiser.Vectors()[0],
-    organiser.Vectors()[1],
-    organiser.Vectors()[2],
-    organiser.Types(),   //change this
-    organiser.Positions(),
-    organiser.Velocities(),
-    organiser.Forces()
-  );
-
-  creator.CreateLines(writer);
-  writer.writeFile();
-
-  return 0;
 }
-
-
