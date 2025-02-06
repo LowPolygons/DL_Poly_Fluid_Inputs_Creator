@@ -18,7 +18,7 @@
 
 #include "config.h"
 
-auto initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
+auto Config::initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
   //Description read straight from inputs
   organiser.set_description(inputs.description);
 
@@ -70,7 +70,7 @@ auto initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organiser) ->
   organiser.set_imcon(inputs.imcon);
 }
 
-auto generateMolecules(ConfigInputs& inputs, ConfigOrganiser& organiser) -> std::vector<Molecule> {
+auto Config::generateMolecules(ConfigInputs& inputs, ConfigOrganiser& organiser) -> std::vector<Molecule> {
   //Takes the molecule file names and turns them into Molecule templates
   MoleculeConstructor molCon(inputs.molecules);
   molCon.GenerateMolecules();
@@ -86,7 +86,7 @@ auto generateMolecules(ConfigInputs& inputs, ConfigOrganiser& organiser) -> std:
   return moleculeVector;
 }
 
-auto getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser, std::vector<Molecule> moleculeVector) -> void {
+auto Config::getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser, std::vector<Molecule> moleculeVector) -> void {
   //Switch statement for position generation
   XyzGenerator position(organiser.Vectors(), inputs.numOfMolecules);
   
@@ -145,7 +145,7 @@ auto getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser, std::ve
   }
 }
 
-auto getVelocityValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
+auto Config::getVelocityValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
   //One for Velocities
   XyzGenerator velocity({inputs.vel_minimum, inputs.vel_maximum, { 0.0, 0.0, 0.0 }}, organiser.NumParticles());
 
@@ -170,7 +170,7 @@ auto getVelocityValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void
   }
 }
 
-auto getForceValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
+auto Config::getForceValues(ConfigInputs& inputs, ConfigOrganiser& organiser) -> void {
   XyzGenerator force({inputs.fce_minimum, inputs.fce_maximum, { 0.0, 0.0, 0.0 }}, organiser.NumParticles());
 
   switch (inputs.gen_velocity) {

@@ -30,17 +30,17 @@ int main () {
   ConfigOrganiser organiser;
  
   //Basic values that can just be immediately read and interpreted (CONFIG.H) 
-  initBasicOrganiserVals(inputs, organiser);
+  Config::initBasicOrganiserVals(inputs, organiser);
 
   //Generate the molcule map
-  auto moleculeVector = generateMolecules(inputs, organiser);
+  auto moleculeVector = Config::generateMolecules(inputs, organiser);
 
   //Get the position values based on inputs (CONFIG.H)
-  getPositionValues(inputs, organiser, moleculeVector);
+  Config::getPositionValues(inputs, organiser, moleculeVector);
   //Get the velocity values assuming, if they are desired (CONFIG.H)
-  getVelocityValues(inputs, organiser);
+  Config::getVelocityValues(inputs, organiser);
   //One for Forces
-  getForceValues(inputs, organiser);
+  Config::getForceValues(inputs, organiser);
 
   //Line Creator and Writer here
   auto writer = Writer("results/config.txt");
