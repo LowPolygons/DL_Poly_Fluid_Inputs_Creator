@@ -7,7 +7,6 @@
 #include <array>
 
 #include "../structs/structures.h"
-#include "../parameterReader/ParameterReader.h"
 #include "../writer/Writer.h"
 #include "../lineCreator/LineCreator.h"
 #include "../XYZGenerator/xyzGenerator.h"

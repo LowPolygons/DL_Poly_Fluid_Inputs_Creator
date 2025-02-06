@@ -7,12 +7,12 @@
 #include <array>
 
 struct ConfigInputs {
+  //==================================// 
+  //             Standard             //
+  //==================================//
+
   // The title that goes at the top of the config file
   std::string description = "Oh hello";
-
-  //Check DL_POLY documentation for what these mean. Alternatively, checking out the enum in the structures.h file will show all options
-  LEVCFG levcfg = LEVCFG::COORDS_VELS_FORCES;
-  IMCON imcon = IMCON::PARALLELEPIPED;
 
   // Input the number of molecules to be generated in total, not the number of particles
   // That can be calculated in the program
@@ -27,11 +27,19 @@ struct ConfigInputs {
   // which is much less likely to result in a precision issue as opposed to floats summing to 1
   std::vector<int> moleculePercentages = { 70, 30 };
 
+  //==================================// 
+  //              Config              //
+  //==================================//
+
+  //Check DL_POLY documentation for what these mean. Alternatively, checking out the enum in the structures.h file will show all options
+  LEVCFG levcfg = LEVCFG::COORDS_VELS_FORCES;
+  IMCON imcon = IMCON::PARALLELEPIPED;
+
   // The three unit vectors, these will be labelled in the config file in the same order here
   // The positions of the particles will be described by the sum of some multiple of the below vectors
-  std::array<double, 3> vector1 = { 100.0,  0.0,  0.0};
-  std::array<double, 3> vector2 = {  0.0, 100.0,  0.0};
-  std::array<double, 3> vector3 = {  0.0,  0.0, 100.0};
+  std::array<double, 3> vector1 = { 100.0,  -284.0,  -35.0};
+  std::array<double, 3> vector2 = {  147.0, 100.0,  -189.0};
+  std::array<double, 3> vector3 = {  20.0,  20.0, -100.0};
 
   // The two vectors will describe the minimum/(largest negative) and maximum/(largest postive) velocity a molecule can be randomly assigned
   std::array<double, 3> vel_minimum = { -200.0, -200.0, -200.0 };
@@ -42,7 +50,7 @@ struct ConfigInputs {
   std::array<double, 3> fce_maximum = {  200.0,  200.0,  200.0 };
 
   //The distribution types for the vector components to be generated
-  XYZGEN gen_position = XYZGEN::UNIFORM;
+  XYZGEN gen_position = XYZGEN::RANDOM_UNIFORM;
   XYZGEN gen_velocity = XYZGEN::RANDOM_UNIFORM;
   XYZGEN gen_force    = XYZGEN::RANDOM_UNIFORM;
 
@@ -66,6 +74,15 @@ struct ConfigInputs {
     bool allowIntersectingBoundingSpheres = false;
     // If this is exactly 1, it means that some particles could touch in an exact scenario. This forces the bounding sphere to be slightly larger
     double boundingSphereMultiplier = 1.1;
+
+  
+  //==================================// 
+  //               Field              //
+  //==================================//
+
+  // These are the units used by DL_POLY
+  UNITS units = UNITS::KCAL;
+
 };
 
 #endif

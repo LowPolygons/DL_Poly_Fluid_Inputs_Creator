@@ -2,7 +2,7 @@
 #include <memory>
 
 #include "structs/structures.h"
-#include "parameterReader/ParameterReader.h"
+#include "paramFormatter/paramFormatter.h"
 #include "writer/Writer.h"
 #include "xyzGenerator/XyzGenerator.h"
 #include "lineCreator/LineCreator.h"
@@ -12,6 +12,7 @@
 #include "matrix/Matrix.h"
 #include "moleculePlacer/MoleculePlacer.h"
 #include "inputVerifier/InputVerifier.h"
+#include "../general/parameterReader/ParameterReader.h"
 
 #include "../parameters/Inputs.h"
 
@@ -30,11 +31,39 @@ auto initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organiser) ->
 
   //Loads in the data for default placeholders and formatting lengths
   ParameterReader reader("parameters/configParameters.txt");
-  reader.readLocalConfig();
+  //turns the read in data into the correct structures for the config
+  c_ParamFormatter formatter;
+  //Form the hashmaps and then split into lengths and defaults
+  auto arrayOfMaps = reader.readLocalConfig();
+
+  std::vector<std::string> validKeys = {
+    "description",
+    "levcfg",
+    "imcon",
+    "numparticles",
+    "v1x",
+    "v1y",
+    "v1z",
+    "v2x",
+    "v2y",
+    "v2z",
+    "v3x",
+    "v3y",
+    "v3z",
+    "particleType",
+    "index",
+  };
+
+  std::string noDefaults = "-index-rand_seed-";
+
+  auto lengthsAndDefaults = reader.splitLengthsAndDefaults(arrayOfMaps, validKeys, noDefaults);
+
+  //Converts into the structure
+  formatter.convertToStructure(lengthsAndDefaults);
 
   //Load them into the organiser
-  organiser.set_widthsInFile(reader.LengthsInFile());
-  organiser.set_defaults(reader.DefaultValues());
+  organiser.set_widthsInFile(formatter.LengthsInFile());
+  organiser.set_defaults(formatter.DefaultValues());
 
   //Load the ENUM vals into the organiser
   organiser.set_levcfg(inputs.levcfg);

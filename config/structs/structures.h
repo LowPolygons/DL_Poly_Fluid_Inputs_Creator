@@ -65,7 +65,6 @@ struct ConfigDefaults {
   std::string particleType;
 };
 
-
 //---------------------------//
 //           Field           // 
 //---------------------------//
@@ -80,14 +79,12 @@ enum UNITS {
 };
 
 //The chosen implementation for the units enum
-//Uses inline, as without it this variable suffers a redefinition issue
-//Could instead used `extern` and then implement the data in a separate C++ file but this is neater
-inline std::unordered_map<UNITS, std::string> UNITS_STRINGS = {
+const std::unordered_map<UNITS, std::string> UNITS_STRINGS = {{
   {UNITS::EV, "eV"},
   {UNITS::KCAL, "kcal"},
   {UNITS::KJ, "kj"},
   {UNITS::K, "k"},
   {UNITS::INTERNAL, "internal"}
-};
+}};
 
 #endif

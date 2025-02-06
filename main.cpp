@@ -2,7 +2,6 @@
 #include <memory>
 
 #include "config/structs/structures.h"
-#include "config/parameterReader/ParameterReader.h"
 #include "config/writer/Writer.h"
 #include "config/xyzGenerator/XyzGenerator.h"
 #include "config/lineCreator/LineCreator.h"
@@ -33,6 +32,7 @@ int main () {
   //Basic values that can just be immediately read and interpreted (CONFIG.H) 
   initBasicOrganiserVals(inputs, organiser);
 
+  //Generate the molcule map
   auto moleculeVector = generateMolecules(inputs, organiser);
 
   //Get the position values based on inputs (CONFIG.H)
@@ -55,7 +55,7 @@ int main () {
     organiser.Vectors()[0],
     organiser.Vectors()[1],
     organiser.Vectors()[2],
-    organiser.Types(),   //change this
+    organiser.Types(),
     organiser.Positions(),
     organiser.Velocities(),
     organiser.Forces()

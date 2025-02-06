@@ -1,5 +1,5 @@
-#ifndef PARAMETER_READER
-#define PARAMETER_READER
+#ifndef PARAMETER_FORMATTER_CONFIG
+#define PARAMETER_FORMATTER_CONFIG
 
 #include "../structs/structures.h"
 #include <iostream>
@@ -10,19 +10,15 @@
 
 //-The class will read a locally stored config file and determine some default 
 // values as well as determining the lengths of each var in the final file
-class ParameterReader {
+class c_ParamFormatter {
 public:
   //Constructor
-  ParameterReader(std::string path);
+  c_ParamFormatter() = default;
 
   //Getters
   auto LengthsInFile() -> ConfigParameters;
   auto DefaultValues() -> ConfigDefaults;
 
-  //Overseeing function to convert file inputs into the structs
-  auto readLocalConfig() -> void;
-  //Returns an array of maps which describe the lengths and defaults of each necessary key needed for the config
-  auto splitLengthsAndDefaults(std::unordered_map<std::string, std::string> vals) -> std::array<std::unordered_map<std::string, std::string>, 2>;
   //Converts the lengths and defaults into correct types and stores them in the structures
   auto convertToStructure(std::array<std::unordered_map<std::string, std::string>, 2> var) -> void;
 
@@ -39,8 +35,6 @@ public:
   auto convertSeed        (std::array<std::string,3 > var) -> void;
 
 private:
-  std::string filePath;
-
   ConfigParameters lengthsInFile;
   ConfigDefaults defaultValues;
 };
