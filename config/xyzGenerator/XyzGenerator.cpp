@@ -87,8 +87,7 @@ auto XyzGenerator::generateLattice(int numP) -> std::array<int, 3> {
 auto XyzGenerator::uniform() -> std::vector<std::array<double, 3>> {
   //Generate the needed positions to form a lattice - Generate a grid like in the domain decomposition problem
   //Divide each axis by the corresponding number
-  std::array<int, 3> grid = generateLattice(numParticles);
-  
+  std::array<int, 3> grid = generateLattice(numParticles); 
 
   //The increments
   std::array<double, 3> xIncrement = { xAxis[0] / grid[0], xAxis[1] / grid[0], xAxis[2] / grid[0] };
