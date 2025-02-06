@@ -2,7 +2,7 @@
 #include <vector>
 #include <array>
 
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 #include "../writer/Writer.h"
 #include "../lineCreator/LineCreator.h"
 #include "../XYZGenerator/xyzGenerator.h"

@@ -4,7 +4,7 @@
 #include <memory> //shared_ptr
 #include <string> //to_string
 
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 #include "LineCreator.h"
 #include "../writer/Writer.h"
 

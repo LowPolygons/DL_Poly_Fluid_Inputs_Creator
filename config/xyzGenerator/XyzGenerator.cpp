@@ -1,5 +1,5 @@
 #include "xyzGenerator.h"
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 
 #include <iostream>
 #include <vector>

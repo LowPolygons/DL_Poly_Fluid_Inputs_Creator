@@ -1,7 +1,7 @@
 #ifndef INPUTS_FOR_GENERATOR
 #define INPUTS_FOR_GENERATOR
 
-#include "../config/structs/structures.h"
+#include "../general/structs/structures.h"
 #include <vector>
 #include <iostream>
 #include <array>

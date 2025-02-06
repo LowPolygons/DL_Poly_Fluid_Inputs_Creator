@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <string>
 
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 #include "ParamFormatter.h"
 
 auto c_ParamFormatter::LengthsInFile() -> ConfigParameters { return lengthsInFile; }

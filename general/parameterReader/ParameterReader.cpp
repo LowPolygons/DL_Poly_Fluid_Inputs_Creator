@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <string>
 
-#include "../../config/structs/structures.h"
+#include "../../general/structs/structures.h"
 #include "ParameterReader.h"
 
 ParameterReader::ParameterReader(std::string path) {

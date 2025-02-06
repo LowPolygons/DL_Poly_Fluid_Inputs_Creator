@@ -4,7 +4,7 @@
 
 #include <array>
 #include <vector>
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 
 class XyzGenerator {
 public: 

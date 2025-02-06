@@ -1,7 +1,7 @@
 #ifndef PARAMETER_FORMATTER_CONFIG
 #define PARAMETER_FORMATTER_CONFIG
 
-#include "../structs/structures.h"
+#include "../../general/structs/structures.h"
 #include <iostream>
 #include <array>
 #include <fstream>

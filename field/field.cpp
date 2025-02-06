@@ -4,7 +4,7 @@
 #include "Field.h"
 
 #include "paramFormatter/ParamFormatter.h"
-#include "../config/structs/structures.h"
+#include "../general/structs/structures.h"
 #include "../general/parameterReader/ParameterReader.h"
 
 auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> void {

@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../config/structs/structures.h"
+#include "../general/structs/structures.h"
 #include "../config/molecule/Molecule.h"
 
 class f_Line_Creator {

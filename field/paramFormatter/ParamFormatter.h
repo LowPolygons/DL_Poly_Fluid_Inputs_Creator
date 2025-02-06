@@ -4,7 +4,7 @@
 
 #include <unordered_map>
 #include <iostream>
-#include "../../config/structs/structures.h"
+#include "../../general/structs/structures.h"
 
 
 class f_ParamFormatter {

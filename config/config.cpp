@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 
-#include "structs/structures.h"
+#include "../general/structs/structures.h"
 #include "paramFormatter/paramFormatter.h"
 #include "writer/Writer.h"
 #include "xyzGenerator/XyzGenerator.h"
