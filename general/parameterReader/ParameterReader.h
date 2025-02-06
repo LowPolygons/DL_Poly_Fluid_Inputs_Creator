@@ -16,7 +16,7 @@ public:
   ParameterReader(std::string path);
 
   //Overseeing function to convert file inputs into the structs
-  auto readLocalConfig() -> std::unordered_map<std::string, std::string>;
+  auto readFile() -> std::unordered_map<std::string, std::string>;
   //Returns an array of maps which describe the lengths and defaults of each necessary key needed for the config
   auto splitLengthsAndDefaults(std::unordered_map<std::string, std::string> vals, std::vector<std::string> keys, std::string noDefaults) -> std::array<std::unordered_map<std::string, std::string>, 2>;
 

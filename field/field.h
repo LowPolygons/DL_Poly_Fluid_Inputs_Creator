@@ -1,6 +1,8 @@
 #ifndef FIELD_MANAGER
 #define FIELD_MANAGER
 
-class Field
+namespace Field {
+  auto GetFileLengths() -> void;
+};
 
 #endif

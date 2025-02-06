@@ -1,0 +1,7 @@
+//Not fully representitive of what it should resemble. Add as necessary
+description=200
+
+units=8
+
+molecules=3
+moleculeNames=15

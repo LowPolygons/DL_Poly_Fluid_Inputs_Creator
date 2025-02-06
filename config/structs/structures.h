@@ -69,6 +69,14 @@ struct ConfigDefaults {
 //           Field           // 
 //---------------------------//
 
+//The ones here aren't necessarily representitive of what they need to be in future. Add as necessary
+struct FieldParameters {
+  int description;
+  int units;
+  int molecules;
+  int moleculeNames;
+};
+
 //Taken from DL_POLY docs
 enum UNITS {
   EV = 1,      //Electron Volts

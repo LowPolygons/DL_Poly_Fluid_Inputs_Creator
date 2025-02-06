@@ -55,7 +55,7 @@ auto ParameterReader::splitLengthsAndDefaults(std::unordered_map<std::string, st
   return lengthsAndDefaults; 
 }
 
-auto ParameterReader::readLocalConfig() -> std::unordered_map<std::string, std::string> {  
+auto ParameterReader::readFile() -> std::unordered_map<std::string, std::string> {  
 
   std::ifstream file(filePath);
 

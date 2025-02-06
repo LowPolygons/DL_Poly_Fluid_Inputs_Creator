@@ -34,7 +34,7 @@ auto Config::initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organ
   //turns the read in data into the correct structures for the config
   c_ParamFormatter formatter;
   //Form the hashmaps and then split into lengths and defaults
-  auto arrayOfMaps = reader.readLocalConfig();
+  auto arrayOfMaps = reader.readFile();
 
   std::vector<std::string> validKeys = {
     "description",

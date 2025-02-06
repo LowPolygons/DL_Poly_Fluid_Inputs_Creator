@@ -15,6 +15,7 @@
 #include "parameters/Inputs.h"
 
 #include "config/config.h"
+#include "field/field.h"
 
 int main () {
   //==================================// 
@@ -68,7 +69,8 @@ int main () {
   //==================================// 
   //               Field              //
   //==================================//
-
+  
+  Field::GetFileLengths();
 
   return 0;
 }
