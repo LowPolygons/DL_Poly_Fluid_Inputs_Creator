@@ -1,0 +1,8 @@
+Atoms=1
+
+//Possibly may need to add a Bonds=val 
+0:WT=0.0000,0.0000,0.0000
+
+//Atom Description, MUST start with [ATOM],
+//[ATOM], <character>, <mass>, <charge>, <nrept>, <ifrz>
+[ATOM], WT, 90.076, 0.0, 1, 0 

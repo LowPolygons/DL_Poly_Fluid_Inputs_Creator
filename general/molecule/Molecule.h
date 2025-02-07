@@ -41,6 +41,10 @@ private:
   std::vector<std::array<int, 2>> bonds;
 
   double boundingRadius;
+
+  // These values are Field file exclusive
+  std::string name;
+
 };
 
 #endif

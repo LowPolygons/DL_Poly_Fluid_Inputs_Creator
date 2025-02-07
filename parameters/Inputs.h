@@ -16,30 +16,30 @@ struct ConfigInputs {
 
   // Input the number of molecules to be generated in total, not the number of particles
   // That can be calculated in the program
-  int numOfMolecules = 1000;
+  int numOfMolecules = 20000;
 
   // These are all the molecules that are to be used in the config file
   // The order matters 
-  std::vector<std::string> molecules   = { "H2O", "H2SO4" };
+  std::vector<std::string> molecules   = { "H2OBEAD" }; // { "H2O", "H2SO4" };
 
   // The percentages of each molecule in the generated fluid, according to the above order
   // Stored as integers, as you want to check if it sums to 100 
   // which is much less likely to result in a precision issue as opposed to floats summing to 1
-  std::vector<int> moleculePercentages = { 70, 30 };
+  std::vector<int> moleculePercentages = { 100 };
 
   //==================================// 
   //              Config              //
   //==================================//
 
   //Check DL_POLY documentation for what these mean. Alternatively, checking out the enum in the structures.h file will show all options
-  LEVCFG levcfg = LEVCFG::COORDS_VELS_FORCES;
+  LEVCFG levcfg = LEVCFG::COORDS;
   IMCON imcon = IMCON::PARALLELEPIPED;
 
   // The three unit vectors, these will be labelled in the config file in the same order here
   // The positions of the particles will be described by the sum of some multiple of the below vectors
-  std::array<double, 3> vector1 = { 100.0,  0.0,  0.0};
-  std::array<double, 3> vector2 = {  0.0, 100.0,  0.0};
-  std::array<double, 3> vector3 = {  00.0,  0.0, 100.0};
+  std::array<double, 3> vector1 = { 111.0,  0.0,  0.0};
+  std::array<double, 3> vector2 = {  0.0, 111.0,  0.0};
+  std::array<double, 3> vector3 = {  0.0,  0.0, 300.0};
 
   // The two vectors will describe the minimum/(largest negative) and maximum/(largest postive) velocity a molecule can be randomly assigned
   std::array<double, 3> vel_minimum = { -200.0, -200.0, -200.0 };

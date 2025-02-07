@@ -12,3 +12,6 @@ Atoms=3
 0->1
 1->2
 19->48
+
+//Atom Description, MUST start with [ATOM]
+//[ATOM] <character>, <mass>, <charge>, <nrept>, <ifrz>

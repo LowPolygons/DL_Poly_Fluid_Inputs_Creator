@@ -77,6 +77,14 @@ struct FieldParameters {
   int moleculeNames;
 };
 
+struct Atom {
+  std::string name;
+  double mass;
+  double charge;
+  double nrept;
+  double ifrz;
+};
+
 //Taken from DL_POLY docs
 enum UNITS {
   EV = 1,      //Electron Volts

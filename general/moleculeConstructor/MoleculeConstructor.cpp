@@ -26,7 +26,26 @@ auto ParseBond(std::string line) -> std::array<int, 2> {
   int indexTwo = std::stoi(line.substr(line.find("->")+2,line.length()-1));
 
   return { indexOne, indexTwo };
-} 
+}
+
+auto MoleculeConstructor::FormatAtomDescription(std::string line) -> void {
+  //There should be 5 commas, separating each value
+  size_t index1 = line.find("[ATOM],");
+  size_t index2 = line.find(",", index1+7);
+  size_t index3 = line.find(",", index2+1);
+  size_t index4 = line.find(",", index3+1);
+  size_t index5 = line.find(",", index4+1);
+
+  Atom curr;
+
+  curr.name = line.substr(index1+7, index2-index1-7);
+  curr.mass = std::stod(line.substr(index2+1, index3-index2-1));
+  curr.charge = std::stod(line.substr(index3+1, index4-index3-1));
+  curr.nrept = std::stod(line.substr(index4+1, index5-index4-1));
+  curr.ifrz = std::stod(line.substr(index5+1, std::string::npos-index5-1));
+
+  atoms[curr.name] = curr;
+}
 
 auto MoleculeConstructor::FormatLinesToValues(std::vector<std::string> linesToFilter, std::string moleculeName) -> void {
   //if a line contains a :, it represents
@@ -55,7 +74,7 @@ auto MoleculeConstructor::FormatLinesToValues(std::vector<std::string> linesToFi
   for (std::string currLine : linesToFilter) {
     //If it contains a : it is a position, first index of the string is the index 
     //If it contains a -> it is a bond description
-     
+    //If it contains [ATOM], it describes an atom 
     if ( currLine.find(":") != std::string::npos ) {
       int index = std::stoi(currLine.substr(0, currLine.find(":")));
       atomTypes[index] = currLine.substr(currLine.find(":")+1, currLine.find("=")-currLine.find(":")-1);
@@ -63,6 +82,9 @@ auto MoleculeConstructor::FormatLinesToValues(std::vector<std::string> linesToFi
     } 
     else if ( currLine.find("->") != std::string::npos ) {
       bonds.push_back(ParseBond(currLine));
+    }
+    else if ( currLine.find("[ATOM],") != std::string::npos ) {
+      FormatAtomDescription(currLine); 
     }
   }
 

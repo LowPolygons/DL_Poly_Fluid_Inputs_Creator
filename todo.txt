@@ -1,0 +1,4 @@
+Add vdw (just 1 needed, read docs for the rest)
+
+1 water molecule (its a bead)
+- add the 'atoms' part of a molecule in the field
