@@ -85,6 +85,12 @@ struct Atom {
   double ifrz;
 };
 
+struct Potential {
+  std::string name;
+  int numVariables;
+  std::vector<double> parameters;
+};
+
 //Taken from DL_POLY docs
 enum UNITS {
   EV = 1,      //Electron Volts

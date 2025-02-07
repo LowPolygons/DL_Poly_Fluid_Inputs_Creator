@@ -1,0 +1,9 @@
+//Ignores comments: name and count are mandatory, then order matters
+Name=ndpd
+Count=5
+3.00581
+15.0
+4.0
+13.8756
+4.310805
+

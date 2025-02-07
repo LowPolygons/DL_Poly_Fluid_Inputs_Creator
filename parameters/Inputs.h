@@ -20,8 +20,8 @@ struct ConfigInputs {
 
   // These are all the molecules that are to be used in the config file
   // The order matters 
-  std::vector<std::string> molecules   = { "H2OBEAD" }; // { "H2O", "H2SO4" };
-
+  std::vector<std::string> molecules    = { "H2OBEAD" }; // { "H2O", "H2SO4" };
+  
   // The percentages of each molecule in the generated fluid, according to the above order
   // Stored as integers, as you want to check if it sums to 100 
   // which is much less likely to result in a precision issue as opposed to floats summing to 1
@@ -82,6 +82,9 @@ struct ConfigInputs {
 
   // These are the units used by DL_POLY
   UNITS units = UNITS::KCAL;
+
+  //These are all the VDWs to be listed at the bottom of the field file
+  std::vector<std::string> vdwInteracts = { "WT_WT" };
 
 };
 
