@@ -7,7 +7,7 @@
 #include <array>
 #include <utility>
 
-#include "../matrix/Matrix.h"
+#include "../../config/matrix/Matrix.h"
 
 //Important distinction: this is not to be used as an instance of a given molecule, this molecule describes only the relative positions of a molecule
 //Angles and things can be calculated when necessary

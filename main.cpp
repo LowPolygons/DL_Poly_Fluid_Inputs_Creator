@@ -6,8 +6,8 @@
 #include "config/xyzGenerator/XyzGenerator.h"
 #include "config/lineCreator/LineCreator.h"
 #include "config/configOrganiser/ConfigOrganiser.h"
-#include "config/molecule/Molecule.h"
-#include "config/moleculeConstructor/MoleculeConstructor.h"
+#include "general/molecule/Molecule.h"
+#include "general/moleculeConstructor/MoleculeConstructor.h"
 #include "config/matrix/Matrix.h"
 #include "config/moleculePlacer/MoleculePlacer.h"
 #include "config/inputVerifier/InputVerifier.h"
@@ -16,6 +16,7 @@
 
 #include "config/config.h"
 #include "field/field.h"
+#include "field/lineCreator/LineCreator.h"
 
 int main () {
   //==================================// 
@@ -70,7 +71,15 @@ int main () {
   //               Field              //
   //==================================//
   
-  Field::GetFileLengths();
+  FieldParameters fieldParams = Field::GetFileLengths();
+
+  f_LineCreator tester(fieldParams, "ASDASDASDAD", UNITS::KCAL, 2, inputs.molecules, organiser.MoleculeCounts(), moleculeVector);
+
+  auto values = tester.GetPerMoleculeCount();
+
+  for (std::string s : values) {
+    std::cout << s << "YAYA" << std::endl;
+  }
 
   return 0;
 }

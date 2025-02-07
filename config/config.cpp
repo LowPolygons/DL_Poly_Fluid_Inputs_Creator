@@ -7,8 +7,8 @@
 #include "xyzGenerator/XyzGenerator.h"
 #include "lineCreator/LineCreator.h"
 #include "configOrganiser/ConfigOrganiser.h"
-#include "molecule/Molecule.h"
-#include "moleculeConstructor/MoleculeConstructor.h"
+#include "../general/molecule/Molecule.h"
+#include "../general/moleculeConstructor/MoleculeConstructor.h"
 #include "matrix/Matrix.h"
 #include "moleculePlacer/MoleculePlacer.h"
 #include "inputVerifier/InputVerifier.h"
@@ -106,6 +106,8 @@ auto Config::getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser,
       uniform.ConfirmGridFitsMoleculeCount();
       uniform.PlaceMolecules(inputs.randSeed_Angle, inputs.randSeed_Offsets);
 
+      organiser.set_moleculeCounts(uniform.MoleculeCounts());
+
       //Add the number of particles, positions and types to the organiser
       organiser.set_numParticles(uniform.Particles().size());
       organiser.set_positions(uniform.Particles());
@@ -127,6 +129,7 @@ auto Config::getPositionValues(ConfigInputs& inputs, ConfigOrganiser& organiser,
       ); 
 
       random.PlaceMolecules(inputs.randSeed_Angle, inputs.randSeed_Offsets);
+      organiser.set_moleculeCounts(random.MoleculeCounts());
 
       //Add the number of particles, positions and types to the organiser
       organiser.set_numParticles(random.Particles().size());

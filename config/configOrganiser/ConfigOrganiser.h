@@ -28,6 +28,7 @@ public:
   auto Positions()    -> std::vector<std::array<double, 3>>;
   auto Velocities()   -> std::vector<std::array<double, 3>>;
   auto Forces()       -> std::vector<std::array<double, 3>>;
+  auto MoleculeCounts() -> std::vector<int>;
   //Setters
   void set_widthsInFile(ConfigParameters inp);
   void set_defaults(ConfigDefaults inp);
@@ -40,7 +41,7 @@ public:
   void set_velocities(std::vector<std::array<double, 3>> inp);
   void set_forces(std::vector<std::array<double, 3>> inp);
   void set_types(std::vector<std::string> inp);
-
+  void set_moleculeCounts(std::vector<int> inp);
 private:
   ConfigParameters widthsInFile;
   ConfigDefaults defaults;
@@ -56,6 +57,8 @@ private:
   std::vector<std::array<double, 3>> velocities;
   std::vector<std::array<double, 3>> forces;
   std::vector<std::string> types;
+
+  std::vector<int> moleculeCounts;
 };
 
 #endif

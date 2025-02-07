@@ -2,7 +2,7 @@
 
 #define CONFIG_SECTION
 
-#include "molecule/Molecule.h"
+#include "../general/molecule/Molecule.h"
 #include "configOrganiser/ConfigOrganiser.h"
 #include "../parameters/Inputs.h"
 

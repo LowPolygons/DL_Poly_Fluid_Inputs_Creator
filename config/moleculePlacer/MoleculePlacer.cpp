@@ -4,7 +4,7 @@
 #include <random>
 #include <algorithm>
 
-#include "../molecule/Molecule.h"
+#include "../../general/molecule/Molecule.h"
 #include "../xyzGenerator/XyzGenerator.h"
 #include "../matrix/Matrix.h"
 
@@ -68,9 +68,11 @@ auto MoleculePlacer::ConfirmGridFitsMoleculeCount() -> bool {
   return success;
 }
 
+auto MoleculePlacer::MoleculeCounts() -> std::vector<int> { return moleculeCounts; }
+
 auto MoleculePlacer::PlaceMolecules(int angleRandSeed, int offsetRandSeed) -> void { 
   //Calculate the number of molecules for each variation
-  std::vector<int> moleculeCount(moleculePercentages.size());
+  std::vector<int> _moleculeCount(moleculePercentages.size());
 
   float precisionLoss = 0.0f;
   //Currently, the number of particles will not exactly match in the event of a non perfect fraction
@@ -82,11 +84,13 @@ auto MoleculePlacer::PlaceMolecules(int angleRandSeed, int offsetRandSeed) -> vo
   
     precisionLoss += (numMolecules*currentPercentage - static_cast<float>(currentNum));
 
-    moleculeCount[i] = currentNum;
+    _moleculeCount[i] = currentNum;
   }
   //Log the precision loss, let the user decide whether to modify or not
   std::cout << "[Info]  Total number of molecules lost due to percentage issues: " << precisionLoss << std::endl;
-  
+  //Assign to the member
+  moleculeCounts = _moleculeCount;
+
   std::mt19937 angleGenerator(angleRandSeed);
   std::mt19937 offsetIndexGenerator(offsetRandSeed);
 
@@ -97,8 +101,8 @@ auto MoleculePlacer::PlaceMolecules(int angleRandSeed, int offsetRandSeed) -> vo
   Matrix local_maths;
 
   //Now loop through each molecule in turn, Randomise rotation, offset, add to particles, remove offset from list
-  for (int i = 0; i < moleculeCount.size(); i++) {
-    int count = moleculeCount[i];
+  for (int i = 0; i < _moleculeCount.size(); i++) {
+    int count = _moleculeCount[i];
     Molecule currentMolecule = molecules[i];
     std::vector<std::string> types = currentMolecule.GetTypes();
     //May not actually need the variable itself, therefore _

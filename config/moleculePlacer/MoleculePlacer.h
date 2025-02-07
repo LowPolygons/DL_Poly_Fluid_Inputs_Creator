@@ -6,7 +6,7 @@
 #include <array>
 #include <iostream>
 
-#include "../molecule/Molecule.h"
+#include "../../general/molecule/Molecule.h"
 
 class MoleculePlacer {
   public:
@@ -34,7 +34,7 @@ class MoleculePlacer {
     //Getter
     auto Particles() -> std::vector<std::array<double, 3>>;
     auto AtomTypes() -> std::vector<std::string>;
- 
+    auto MoleculeCounts() -> std::vector<int>;
 private:
 
   std::array<double, 3> vec1;
@@ -49,7 +49,8 @@ private:
   std::vector<std::array<double, 3>> offsets;
   std::vector<Molecule> molecules;
   std::vector<int> moleculePercentages;
-
+  
+  std::vector<int> moleculeCounts;
 };
 
 #endif

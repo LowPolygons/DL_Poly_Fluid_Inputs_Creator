@@ -7,7 +7,7 @@
 #include "../general/structs/structures.h"
 #include "../general/parameterReader/ParameterReader.h"
 
-auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> void {
+auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> FieldParameters{
   ParameterReader reader("parameters/fieldParameters.txt");
 
   auto values = reader.readFile();
@@ -22,4 +22,6 @@ auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> void {
   std::cout << fP.units << std::endl;
   std::cout << fP.molecules << std::endl;
   std::cout << fP.moleculeNames << std::endl;
+
+  return fP;
 }

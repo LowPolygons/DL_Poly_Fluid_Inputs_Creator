@@ -37,9 +37,9 @@ struct ConfigInputs {
 
   // The three unit vectors, these will be labelled in the config file in the same order here
   // The positions of the particles will be described by the sum of some multiple of the below vectors
-  std::array<double, 3> vector1 = { 100.0,  -284.0,  -35.0};
-  std::array<double, 3> vector2 = {  147.0, 100.0,  -189.0};
-  std::array<double, 3> vector3 = {  20.0,  20.0, -100.0};
+  std::array<double, 3> vector1 = { 100.0,  0.0,  0.0};
+  std::array<double, 3> vector2 = {  0.0, 100.0,  0.0};
+  std::array<double, 3> vector3 = {  00.0,  0.0, 100.0};
 
   // The two vectors will describe the minimum/(largest negative) and maximum/(largest postive) velocity a molecule can be randomly assigned
   std::array<double, 3> vel_minimum = { -200.0, -200.0, -200.0 };
@@ -50,7 +50,7 @@ struct ConfigInputs {
   std::array<double, 3> fce_maximum = {  200.0,  200.0,  200.0 };
 
   //The distribution types for the vector components to be generated
-  XYZGEN gen_position = XYZGEN::RANDOM_UNIFORM;
+  XYZGEN gen_position = XYZGEN::UNIFORM;
   XYZGEN gen_velocity = XYZGEN::RANDOM_UNIFORM;
   XYZGEN gen_force    = XYZGEN::RANDOM_UNIFORM;
 
