@@ -2,3 +2,10 @@ Add vdw (just 1 needed, read docs for the rest)
 
 1 water molecule (its a bead)
 - add the 'atoms' part of a molecule in the field
+
+
+
+RESOLVE TODOS
+in fieldParameters, add the new sizes needed in the file
+
+modify the system to eventually allow the picking and choosing or what goes in a molecule description
