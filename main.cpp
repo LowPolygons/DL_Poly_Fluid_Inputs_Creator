@@ -2,7 +2,7 @@
 #include <memory>
 
 #include "general/structs/structures.h"
-#include "config/writer/Writer.h"
+#include "general/writer/Writer.h"
 #include "config/xyzGenerator/XyzGenerator.h"
 #include "config/lineCreator/LineCreator.h"
 #include "config/configOrganiser/ConfigOrganiser.h"
@@ -18,6 +18,7 @@
 #include "field/field.h"
 #include "field/lineCreator/LineCreator.h"
 #include "field/vdwManager/VdwManager.h"
+
 int main () {
   //==================================// 
   //              Config              //

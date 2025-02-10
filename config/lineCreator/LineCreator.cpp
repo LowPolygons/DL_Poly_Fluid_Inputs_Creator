@@ -6,7 +6,7 @@
 
 #include "../../general/structs/structures.h"
 #include "LineCreator.h"
-#include "../writer/Writer.h"
+#include "../../general/writer/Writer.h"
 
 //TODO: IMPLEMENT DEFAULTS IN THE EVENT OF NO DATA
 

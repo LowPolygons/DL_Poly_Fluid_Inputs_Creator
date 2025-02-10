@@ -3,7 +3,7 @@
 #define LINE_CREATOR
 
 #include "../../general/structs/structures.h"
-#include "../writer/Writer.h"
+#include "../../general/writer/Writer.h"
 #include <iostream>
 #include <array>
 #include <vector>

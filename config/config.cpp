@@ -3,7 +3,7 @@
 
 #include "../general/structs/structures.h"
 #include "paramFormatter/paramFormatter.h"
-#include "writer/Writer.h"
+#include "../general/writer/Writer.h"
 #include "xyzGenerator/XyzGenerator.h"
 #include "lineCreator/LineCreator.h"
 #include "configOrganiser/ConfigOrganiser.h"

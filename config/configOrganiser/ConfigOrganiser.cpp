@@ -3,7 +3,7 @@
 #include <array>
 
 #include "../../general/structs/structures.h"
-#include "../writer/Writer.h"
+#include "../../general/writer/Writer.h"
 #include "../lineCreator/LineCreator.h"
 #include "../XYZGenerator/xyzGenerator.h"
 

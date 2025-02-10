@@ -5,6 +5,8 @@
 
 namespace Field {
   auto GetFileLengths() -> FieldParameters;
+  
+  auto WriteLinesToFile() -> void;
 };
 
 #endif

@@ -19,7 +19,7 @@ auto Writer::writeFile() -> bool {
   if ( std::filesystem::exists(targetPath) ) {
     //if already exists, delete and recreate the file here
     if ( !std::filesystem::remove(targetPath) ) {
-      std::cout << "[Error] There was an issue trying to replace the current config file. Try deleting it manually?" << std::endl;
+      std::cout << "[Error] There was an issue trying to replace the file: " << filePath << ". Try deleting it manually?" << std::endl;
       return false;
     }
   }
@@ -28,7 +28,7 @@ auto Writer::writeFile() -> bool {
 
   //check it was created correctly
   if (!output) {
-    std::cout << "[Error] There was an issue trying to create a new config file" << std::endl;
+    std::cout << "[Error] There was an issue trying to create a new file at " << filePath << std::endl;
     return false;
   }
 
