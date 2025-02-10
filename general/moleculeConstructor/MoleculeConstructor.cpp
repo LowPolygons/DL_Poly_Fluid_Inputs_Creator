@@ -8,6 +8,7 @@
 #include "MoleculeConstructor.h"
 
 auto MoleculeConstructor::Molecules() -> std::unordered_map<std::string, Molecule> { return molecules; }
+auto MoleculeConstructor::Atoms() -> std::unordered_map<std::string, Atom> { return atoms; }
 
 auto ParseCartPosition(std::string line) -> std::array<double, 3> {
   size_t index1 = line.find("=");
@@ -41,10 +42,12 @@ auto MoleculeConstructor::FormatAtomDescription(std::string line) -> void {
   curr.name = line.substr(index1+7, index2-index1-7);
   curr.mass = std::stod(line.substr(index2+1, index3-index2-1));
   curr.charge = std::stod(line.substr(index3+1, index4-index3-1));
-  curr.nrept = std::stod(line.substr(index4+1, index5-index4-1));
-  curr.ifrz = std::stod(line.substr(index5+1, std::string::npos-index5-1));
+  curr.nrept = std::stoi(line.substr(index4+1, index5-index4-1));
+  curr.ifrz = std::stoi(line.substr(index5+1, std::string::npos-index5-1));
 
   atoms[curr.name] = curr;
+
+  std::cout << "NAME:" << curr.name << ":END" << std::endl;
 }
 
 auto MoleculeConstructor::FormatLinesToValues(std::vector<std::string> linesToFilter, std::string moleculeName) -> void {

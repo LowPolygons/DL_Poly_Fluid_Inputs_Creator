@@ -81,8 +81,8 @@ struct Atom {
   std::string name;
   double mass;
   double charge;
-  double nrept;
-  double ifrz;
+  int nrept;
+  int ifrz;
 };
 
 struct Potential {

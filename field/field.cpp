@@ -6,6 +6,9 @@
 #include "paramFormatter/ParamFormatter.h"
 #include "../general/structs/structures.h"
 #include "../general/parameterReader/ParameterReader.h"
+#include "../parameters/Inputs.h"
+#include "../general/moleculeConstructor/MoleculeConstructor.h"
+#include "../general/writer/Writer.h"
 
 auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> FieldParameters{
   ParameterReader reader("parameters/fieldParameters.txt");
@@ -24,4 +27,8 @@ auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> FieldParame
   std::cout << fP.moleculeNames << std::endl;
 
   return fP;
+}
+
+auto Field::WriteLinesToFile(FieldParameters& fieldParams, MoleculeConstructor& MolCon, Writer& writer) -> void {
+   
 }

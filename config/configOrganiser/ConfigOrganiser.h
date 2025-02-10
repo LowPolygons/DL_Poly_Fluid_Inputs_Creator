@@ -42,6 +42,7 @@ public:
   void set_forces(std::vector<std::array<double, 3>> inp);
   void set_types(std::vector<std::string> inp);
   void set_moleculeCounts(std::vector<int> inp);
+
 private:
   ConfigParameters widthsInFile;
   ConfigDefaults defaults;

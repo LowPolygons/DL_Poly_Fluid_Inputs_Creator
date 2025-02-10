@@ -16,6 +16,7 @@ public:
 
   auto GenerateMolecules() -> void;
   auto Molecules() -> std::unordered_map<std::string, Molecule>;
+  auto Atoms() -> std::unordered_map<std::string, Atom>;
   auto FormatLinesToValues(std::vector<std::string> linesToFilter, std::string moleculeName) -> void;
   auto FormatAtomDescription(std::string line) -> void;
 private:

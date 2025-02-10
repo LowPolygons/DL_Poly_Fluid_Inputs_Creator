@@ -74,24 +74,41 @@ int main () {
   
   FieldParameters fieldParams = Field::GetFileLengths();
 
-  f_LineCreator tester(fieldParams, "ASDASDASDAD", UNITS::KCAL, 2, inputs.molecules, organiser.MoleculeCounts(), moleculeVector);
-
-  auto values = tester.GetPerMoleculeCount();
-
-  for (std::string s : values) {
-    std::cout << s << "YAYA" << std::endl;
-  }
-
-  VdwManager manager({"WT_WT"});
-
+  VdwManager manager(inputs.vdwInteracts);
+  //Format them
   manager.ReadVDWs();
+  //hold them
+  std::vector<Potential> potentials = manager.UsableVDWs();
 
-  std::vector<Potential> thing = manager.UsableVDWs();
+  std::cout << moleculeVector.size() << std::endl;
+  //Create the line creator to format the lines
+  f_LineCreator lines(
+    fieldParams,
+    inputs.description, 
+    inputs.units,
+    moleculeVector.size(), 
+    inputs.molecules, 
+    organiser.MoleculeCounts(), //Poorly named, this is the per molecule count 
+    moleculeVector, 
+    potentials
+  );
 
-  std::cout << thing[0].name << std::endl;
-  for (double x : thing[0].parameters) {
-    std::cout << x << "ahdas" << std::endl;
+  //TODO: THIS IS REDUNDANT CODE
+  //
+  //Takes the molecule file names and turns them into Molecule templates
+  MoleculeConstructor molCon(inputs.molecules);
+  molCon.GenerateMolecules();
+
+  std::cout << molCon.Atoms()["WT"].name << std::endl;
+
+  auto fieldLines = lines.CreateLines(molCon, inputs.vdwInteracts);
+
+  Writer fieldWriter = Writer("results/field.txt");
+
+  for (auto curr : fieldLines) {
+    fieldWriter.addLine(curr);
   }
 
+  fieldWriter.writeFile();
   return 0;
 }
