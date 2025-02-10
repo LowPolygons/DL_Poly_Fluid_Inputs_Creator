@@ -17,7 +17,7 @@
 #include "config/config.h"
 #include "field/field.h"
 #include "field/lineCreator/LineCreator.h"
-
+#include "field/vdwManager/VdwManager.h"
 int main () {
   //==================================// 
   //              Config              //
@@ -79,6 +79,17 @@ int main () {
 
   for (std::string s : values) {
     std::cout << s << "YAYA" << std::endl;
+  }
+
+  VdwManager manager({"WT_WT"});
+
+  manager.ReadVDWs();
+
+  std::vector<Potential> thing = manager.UsableVDWs();
+
+  std::cout << thing[0].name << std::endl;
+  for (double x : thing[0].parameters) {
+    std::cout << x << "ahdas" << std::endl;
   }
 
   return 0;

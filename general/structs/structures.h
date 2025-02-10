@@ -4,7 +4,7 @@
 #include <iostream>
 #include <array>
 #include <unordered_map>
-
+#include <vector>
 //---------------------------//
 //          Config           // 
 //---------------------------//

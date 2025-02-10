@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "../../general/structs/structures.h"
+#include "VdwManager.h"
 
 auto VdwManager::UsableVDWs() -> std::vector<Potential> { return usableVDWs; }
 
@@ -28,24 +29,26 @@ auto VdwManager::ReadVDWs() -> void {
       //If it is not a comment
       if (currentLine.substr(0, 2) != "//") {
         
-        if (currentLine.find("Name=")) {
+        if (currentLine.find("Name=") != std::string::npos) {
           _name = currentLine.substr(currentLine.find("Name=")+5, std::string::npos);
         }
-        else if (currentLine.find("Count=")) {
+        else if (currentLine.find("Count=") != std::string::npos) {
           _numVariables = std::stoi(currentLine.substr(currentLine.find("Count=")+6, std::string::npos));
         }
         else {
-          _parameters.push_back(std::stoi(currentLine));
+          if (currentLine.length() > 0) {
+            _parameters.push_back(std::stod(currentLine));
+          }
         }
       }
     }
 
-    Potential current;
+    Potential currentP;
 
-    current.name = _name;
-    current.numVariables = _numVariables;
-    current.parameters = _parameters;
+    currentP.name = _name;
+    currentP.numVariables = _numVariables;
+    currentP.parameters = _parameters;
 
-    usableVDWs.push_back(current);
+    usableVDWs.push_back(currentP);
   }
 }
