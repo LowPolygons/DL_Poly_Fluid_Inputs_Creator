@@ -12,7 +12,7 @@ struct ConfigInputs {
   //==================================//
 
   // The title that goes at the top of the config file
-  std::string description = "Oh hello";
+  std::string description = "A simulation of beads of water in a box";
 
   // Input the number of molecules to be generated in total, not the number of particles
   // That can be calculated in the program
@@ -33,7 +33,7 @@ struct ConfigInputs {
 
   //Check DL_POLY documentation for what these mean. Alternatively, checking out the enum in the structures.h file will show all options
   LEVCFG levcfg = LEVCFG::COORDS;
-  IMCON imcon = IMCON::PARALLELEPIPED;
+  IMCON imcon = IMCON::ORTHORHOMBIC;
 
   // The three unit vectors, these will be labelled in the config file in the same order here
   // The positions of the particles will be described by the sum of some multiple of the below vectors
@@ -81,11 +81,9 @@ struct ConfigInputs {
   //==================================//
 
   // These are the units used by DL_POLY
-  UNITS units = UNITS::KCAL;
-
+  UNITS units = UNITS::KJ;
   //These are all the VDWs to be listed at the bottom of the field file
   std::vector<std::string> vdwInteracts = { "WT_WT" };
-
 };
 
 #endif

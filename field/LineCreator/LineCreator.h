@@ -31,7 +31,7 @@ public:
 
   auto GetDescription() -> std::string;
 
-  auto GetUnit() -> std::vector<std::string>;
+  auto GetUnit() -> std::string;
 
   auto GetMoleculeCount() -> std::vector<std::string>;  
 

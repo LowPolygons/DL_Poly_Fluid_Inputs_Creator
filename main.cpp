@@ -99,8 +99,6 @@ int main () {
   MoleculeConstructor molCon(inputs.molecules);
   molCon.GenerateMolecules();
 
-  std::cout << molCon.Atoms()["WT"].name << std::endl;
-
   auto fieldLines = lines.CreateLines(molCon, inputs.vdwInteracts);
 
   Writer fieldWriter = Writer("results/field.txt");

@@ -14,7 +14,7 @@ auto f_LineCreator::formatter(int size, std::string var) -> std::string {
 
   if (stringSize < size) {
     for (int _ = 0; _ < (size-stringSize); _++){ 
-      var = " " + var;
+      var = var + " ";
     }
   } else if (stringSize > size) {
     var = var.substr(0, size-1); 
@@ -27,8 +27,8 @@ auto f_LineCreator::GetDescription() -> std::string {
   return description.substr(0, std::min(description.size(), static_cast<size_t>(widths.description))); 
 };
 
-auto f_LineCreator::GetUnit() -> std::vector<std::string> {
-  return {"UNITS " + formatter(widths.units, UNITS_STRINGS.at(unit))}; 
+auto f_LineCreator::GetUnit() -> std::string {
+  return "UNITS " + formatter(widths.units, UNITS_STRINGS.at(unit)); 
 }
 
 auto f_LineCreator::GetMoleculeCount() -> std::vector<std::string> {
@@ -67,28 +67,24 @@ auto f_LineCreator::GetMoleculeList(MoleculeConstructor& MolCon) -> std::vector<
     ret.push_back(GetMoleculeNames()[index]);
 
     //Get the num of mols 
-    ret.push_back("NUMMOLS" + GetPerMoleculeCount()[index]);
+    ret.push_back("NUMMOLS " + GetPerMoleculeCount()[index]);
 
     //Get the ATOMS
     auto atoms = currentMol.GetTypes(); //the array of atoms
-    
-    for ( std::string a : atoms) {
-      std::cout << "lol :" << a << std::endl;
-    }
-    auto atomList = MolCon.Atoms();
+        auto atomList = MolCon.Atoms();
     
     //The number of atoms
-    ret.push_back("ATOMS" + formatter(7, std::to_string(atoms.size())));
+    ret.push_back("ATOMS " + formatter(7, std::to_string(atoms.size())));
 
     for (std::string curr_atom : atoms) {
       Atom listOfParts = atomList[curr_atom];
 
       ret.push_back(
-        formatter(8, listOfParts.name) +
-        formatter(10, std::to_string(listOfParts.mass)) +
+        formatter( 8, listOfParts.name) +
+        formatter(10, std::to_string(listOfParts.mass))   +
         formatter(10, std::to_string(listOfParts.charge)) +
-        formatter(5, std::to_string(listOfParts.nrept)) +
-        formatter(5, std::to_string(listOfParts.ifrz))
+        formatter( 5, std::to_string(listOfParts.nrept))   +
+        formatter( 5, std::to_string(listOfParts.ifrz))
       );
     }
     
@@ -103,7 +99,7 @@ auto f_LineCreator::GetVDWS(std::vector<std::string> potentialPairs) -> std::vec
   std::vector<std::string> ret;
   
   //VDW count
-  ret.push_back("VDW "+formatter(6, std::to_string(potentialList.size())));
+  ret.push_back("VDW " + formatter(6, std::to_string(potentialList.size())));
 
   int index = 0;
 
@@ -141,7 +137,7 @@ auto f_LineCreator::CreateLines(MoleculeConstructor& MolCon, std::vector<std::st
   allLines.push_back(GetDescription());
 
   //Units 
-  allLines.push_back(GetUnit()[0]);
+  allLines.push_back(GetUnit());
 
   //Molecules 
   allLines.push_back(GetMoleculeCount()[0]);
