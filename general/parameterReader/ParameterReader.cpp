@@ -17,12 +17,12 @@ ParameterReader::ParameterReader(std::string path) {
 
 //Given the map of values, you split apart the character lengths and default values into two separate maps
 //This will also filter out unwanted key-value pairs
-auto ParameterReader::splitLengthsAndDefaults(std::unordered_map<std::string, std::string> vals, std::vector<std::string> keys, std::string noDefaults) -> 
+auto ParameterReader::splitLengths(std::unordered_map<std::string, std::string> vals, std::vector<std::string> keys, std::string noDefaults) -> 
   std::unordered_map<std::string, std::string> {
 
   //This will just be the input map split into two separate ones
   //0th index is lengths, 1st index is defaults
-  std::unordered_map<std::string, std::string> lengthsAndDefaults;
+  std::unordered_map<std::string, std::string> formattingLengths;
 
   for (std::string key : keys) {
     auto exists = vals.find(key);
@@ -47,14 +47,14 @@ auto ParameterReader::splitLengthsAndDefaults(std::unordered_map<std::string, st
       }
 
       //If there is a colon and there is a default value, separate them and store in
-      lengthsAndDefaults[0][key] = currValue.substr(0, colon);
-      lengthsAndDefaults[1][key] = currValue.substr(colon+1, currValue.length()-1);
+      formattingLengths[0][key] = currValue.substr(0, colon);
+      formattingLengths[1][key] = currValue.substr(colon+1, currValue.length()-1);
     } else {*/
-      lengthsAndDefaults[key] = currValue;
+      formattingLengths[key] = currValue;
     //}
   }
   //TODO: once defualts removed, rename this
-  return lengthsAndDefaults; 
+  return formattingLengths; 
 }
 
 auto ParameterReader::readFile() -> std::unordered_map<std::string, std::string> {  

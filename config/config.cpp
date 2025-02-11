@@ -56,10 +56,10 @@ auto Config::initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organ
 
   std::string noDefaults = "-index-rand_seed-";
 
-  auto lengthsAndDefaults = reader.splitLengthsAndDefaults(arrayOfMaps, validKeys, noDefaults);
+  auto formattingLengths = reader.splitLengths(arrayOfMaps, validKeys, noDefaults);
 
   //Converts into the structure
-  formatter.convertToStructure(lengthsAndDefaults);
+  formatter.convertToStructure(formattingLengths);
 
   //Load them into the organiser
   organiser.set_widthsInFile(formatter.LengthsInFile());
