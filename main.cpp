@@ -50,7 +50,6 @@ int main () {
   
   LineCreator creator(
     organiser.WidthsInFile(), 
-    organiser.Defaults(),
     organiser.Description(),
     organiser.Levcfg(),
     organiser.Imcon(),

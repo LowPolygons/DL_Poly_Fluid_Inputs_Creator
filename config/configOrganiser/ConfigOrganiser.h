@@ -18,7 +18,6 @@ public:
 
   //Getters
   auto WidthsInFile() -> ConfigParameters;
-  auto Defaults()     -> ConfigDefaults;
   auto Description()  -> std::string;
   auto Levcfg()       -> LEVCFG;
   auto Imcon()        -> IMCON;
@@ -31,7 +30,6 @@ public:
   auto MoleculeCounts() -> std::vector<int>;
   //Setters
   void set_widthsInFile(ConfigParameters inp);
-  void set_defaults(ConfigDefaults inp);
   void set_description(std::string inp);
   void set_levcfg(LEVCFG inp);
   void set_imcon(IMCON inp);
@@ -45,7 +43,6 @@ public:
 
 private:
   ConfigParameters widthsInFile;
-  ConfigDefaults defaults;
 
   std::string description;
   LEVCFG levcfg;

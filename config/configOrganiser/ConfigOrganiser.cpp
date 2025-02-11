@@ -11,7 +11,6 @@
 
 //Getters
 auto ConfigOrganiser::WidthsInFile() -> ConfigParameters { return widthsInFile; }
-auto ConfigOrganiser::Defaults()     -> ConfigDefaults   { return defaults;     }
 auto ConfigOrganiser::Description()  -> std::string      { return description;  }
 auto ConfigOrganiser::Levcfg()       -> LEVCFG           { return levcfg;       } 
 auto ConfigOrganiser::Imcon()        -> IMCON            { return imcon;        }
@@ -25,7 +24,6 @@ auto ConfigOrganiser::MoleculeCounts() -> std::vector<int>                   { r
 
 //Setters
 void ConfigOrganiser::set_widthsInFile(ConfigParameters inp) { widthsInFile = inp; }
-void ConfigOrganiser::set_defaults(ConfigDefaults inp)       { defaults = inp;     }
 void ConfigOrganiser::set_description(std::string inp)       { description = inp;  }
 void ConfigOrganiser::set_levcfg(LEVCFG inp)                 { levcfg = inp;       }
 void ConfigOrganiser::set_imcon(IMCON inp)                   { imcon = inp;        }

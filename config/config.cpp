@@ -63,7 +63,6 @@ auto Config::initBasicOrganiserVals(ConfigInputs& inputs, ConfigOrganiser& organ
 
   //Load them into the organiser
   organiser.set_widthsInFile(formatter.LengthsInFile());
-  organiser.set_defaults(formatter.DefaultValues());
 
   //Load the ENUM vals into the organiser
   organiser.set_levcfg(inputs.levcfg);

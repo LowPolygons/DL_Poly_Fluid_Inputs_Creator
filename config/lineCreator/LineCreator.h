@@ -12,14 +12,13 @@
 //Class for creating the formatted lines to be written by the config writer
 class LineCreator {
 public:
-  LineCreator(ConfigParameters _widths, ConfigDefaults _defaults, 
+  LineCreator(ConfigParameters _widths, 
       std::string _description, LEVCFG _levcfg, IMCON _imcon, int _numParticles, 
       std::array<double, 3> v1, std::array<double, 3> v2, std::array<double, 3> v3, 
       std::vector<std::string> _particleType, std::vector<std::array<double, 3>> _positions,
       std::vector<std::array<double, 3>> _velocities, std::vector<std::array<double, 3>> _forces) {
     
     widths = _widths;
-    defaults = _defaults;
     description = _description;
     levcfg = _levcfg;
     imcon = _imcon;
@@ -53,7 +52,6 @@ public:
 private:
   //Formatting things 
   ConfigParameters widths;
-  ConfigDefaults defaults;
   //Actual variables
   std::string description;
   LEVCFG levcfg;

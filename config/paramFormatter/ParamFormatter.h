@@ -17,26 +17,22 @@ public:
 
   //Getters
   auto LengthsInFile() -> ConfigParameters;
-  auto DefaultValues() -> ConfigDefaults;
-
   //Converts the lengths and defaults into correct types and stores them in the structures
-  auto convertToStructure(std::array<std::unordered_map<std::string, std::string>, 2> var) -> void;
+  auto convertToStructure(std::unordered_map<std::string, std::string> var) -> void;
 
   //Given the sets of keys and values read from the localConfig file, these 
   //methods will convert their corresponding value to the correct data type expected by the CONFIG struct
-  auto convertDescription (std::array<std::string, 2> vars) -> void;
-  auto convertLevcfg      (std::array<std::string, 2> vars) -> void;
-  auto convertImcon       (std::array<std::string, 2> vars) -> void;
-  auto convertNumParticles(std::array<std::string, 2> vars) -> void;
-  auto convertParticleType(std::array<std::string, 2> vars) -> void;
+  auto convertDescription (std::string vars) -> void;
+  auto convertLevcfg      (std::string vars) -> void;
+  auto convertImcon       (std::string vars) -> void;
+  auto convertNumParticles(std::string vars) -> void;
+  auto convertParticleType(std::string vars) -> void;
 
-  auto convertXYZ         (std::array<std::array<std::string, 2>, 9> vars) -> void;
+  auto convertXYZ         (std::array<std::string, 9> vars) -> void;
   auto convertIndex       (std::string var) -> void;
-  auto convertSeed        (std::array<std::string,3 > var) -> void;
 
 private:
   ConfigParameters lengthsInFile;
-  ConfigDefaults defaultValues;
 };
 
 

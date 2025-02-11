@@ -51,20 +51,6 @@ struct ConfigParameters {
   int fce_rand_seed;
 };
 
-//Contains the default values for each item when in the final confg file
-//TODO: either implement this, or it is redundant
-struct ConfigDefaults {
-  std::string description;
-  LEVCFG levcfg;
-  IMCON imcon;
-  int numparticles;
-
-  std::array<double, 3> vec1;
-  std::array<double, 3> vec2;
-  std::array<double, 3> vec3;
-  std::string particleType;
-};
-
 //---------------------------//
 //           Field           // 
 //---------------------------//

@@ -1,36 +1,26 @@
 # Inputs For Fluids
-This read me is a constant WIP, and serves more as a guide for both users and developer(s)
+A system designed to create the input DL_POLY files for a fluid or solution, comprised of any number of molecules. This can be used atomistically or using beads 
 
-## [USERS] 
-### USE 
-There are key things to consider before creating a fluid:
-- The different molecules in the fluids
-- The concentrations of each molecule in the fluid
+## USE 
+To make use of this, you will first need to define:
+- System parameters
+- Molecule Structures
+- Interactions
 
-These will be randomly (uniform) distributed among the solution area
+### System Parameters 
+Key Areas of System Parameters:
+- Formatting Lengths
+- Key Values for the system 
 
-To create a Molecule, navigate to the `parameters/molecules` and create the necessary molecules. Examples are provided 
-For more general control over the inputs, navigate to `parameters` and modify the Inputs header to suit your needs
+#### Formatting Lengths
+Navigate to `parameters`, then consult `configParameters.txt` and `fieldParameters.txt`
 
-## [DEVS] 
-### TODO
-- Redo the file structure to be more generalised
-- Resolve Inline TODOs (colon, space, f, w, to grep search in nvim)
-- Implement a new main.cpp file which allows the field related things to get data from the config side of thing
+For each of them:
+- Comments are allowed, by putting // at the very start of the line
+- Each line will outline how many characters the corresponding value will take up in the corresponding output file
 
-### Naming Conventions
+Format of each line:
+  [titleOfLine]=[characterLength]
 
-Variables: standardCamelCase
-
-Classes: FullCamelCase
-
-File Names: 
-    -> Class related: FullCamelCase
-    -> other: standardCamelCase
-
-Enums: CAPSLOCK_SNAKE_CASE
-
-Structs: FullCamelCase
-
-Methods: standardCamelCase
-    -> Getters: FullCamelCase, match variable name, in implementation file, try make a getter be all on one line, at the top
+For Example:
+  description=100
