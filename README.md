@@ -20,10 +20,10 @@ For each of them:
 - Each line will outline how many characters the corresponding value will take up in the corresponding output file
 - The very first line is ignored regardless of the presence of //
 Format of each line:
-  [titleOfLine]=[characterLength]
+  `[titleOfLine]=[characterLength]`
 
 For Example:
-  description=100
+  `description=100`
 
 List of all required parameters in the `config`:
 - description 
@@ -118,10 +118,10 @@ This explains how to define a molecule in the `parameters/molecules` file path
 Once again, lines beginning with // will be ignored so comments are supported
 
 The first line MUST explain how many atoms there are:
-    Atoms=[atomNumber]
+    `Atoms=[atomNumber]`
 
 From there, each subsequent [atomNumber] lines (not including blank space) must follow the given format:
-    [localIndex]:atomLabel=[POSX],[POSY],[POSZ]
+    `[localIndex]:atomLabel=[POSX],[POSY],[POSZ]`
 
 Where (POSX, POSY, POSZ) is in relative coordinates where particles are to each other
 
@@ -129,14 +129,14 @@ Right now, try manually picking a particle to be as close to 0,0,0 as possible. 
 
 
 Next, you list the bonds between particles by writing their local index with a '->' inbetween:
-    [localIndex]->[anotherLocalIndex]
+    `[localIndex]->[anotherLocalIndex]`
 
 This may be redundant, but for now it will stay
 
 Next, you will describe the necessary parameters for eacgh atomLabel needed in the molecule with the format 
 Note: [ATOM] is not a substitute, you must write those 6 characters at the beginning of each line   
-    [ATOM],<character>, <mass>, <charge>, <nrept>, <ifrz>
-Example: [ATOM],WT, 90.076, 0.0, 1, 0
+    `[ATOM],<character>, <mass>, <charge>, <nrept>, <ifrz>`
+Example: `[ATOM],WT, 90.076, 0.0, 1, 0`
 
 ### Interactions
 This will outline how non-molecule atoms will interact, and by what potential with what parameters, listed in `parameters/vdws`
@@ -147,9 +147,9 @@ Important to note: The title of the vdw interaction MUST follow the format of
 Once again, comments are allowed with // at the start of the line
 
 The first two lines must detail the potentail type and the number of parameters respectively. Then, every subsequent line is just a number
-    Name=[potential type, all avaiable in DL_POLY docs]
-    Count=[num variables]
-    [Var1]
-    [Var2]
-    [Var3]
-    [etc]
+    `Name=[potential type, all avaiable in DL_POLY docs]`
+    `Count=[num variables]`
+    `[Var1]`
+    `[Var2]`
+    `[Var3]`
+    `[etc]`
