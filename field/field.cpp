@@ -15,16 +15,24 @@ auto Field::GetFileLengths(/* Pass by Ref the Field Organiser */) -> FieldParame
 
   auto values = reader.readFile();
 
+  std::vector<std::string> keys = {
+    "description",
+    "units",
+    "molecules",
+    "moleculeNames",
+    "moleculeDoubles",
+    "moleculeInts",
+    "potentials",
+    "vdwParticle",
+    "vdwParams"
+  };
+
+  auto validatedValues = reader.splitLengths(values, keys, "");
   f_ParamFormatter formatter;
 
-  formatter.convertToStructure(values);
+  formatter.convertToStructure(validatedValues);
 
   FieldParameters fP = formatter.FieldLengths();
-
-  std::cout << fP.description << std::endl;
-  std::cout << fP.units << std::endl;
-  std::cout << fP.molecules << std::endl;
-  std::cout << fP.moleculeNames << std::endl;
 
   return fP;
 }

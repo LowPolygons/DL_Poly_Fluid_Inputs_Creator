@@ -61,6 +61,11 @@ struct FieldParameters {
   int units;
   int molecules;
   int moleculeNames;
+  int moleculeDoubles;
+  int moleculeInts;
+  int potentials;
+  int vdwParticle;
+  int vdwParams;
 };
 
 struct Atom {

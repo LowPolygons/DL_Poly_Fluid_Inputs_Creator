@@ -5,3 +5,8 @@ units=7
 
 molecules=8
 moleculeNames=15
+moleculeDoubles=12
+moleculeInts=7
+potentials=7
+vdwParticle=6
+vdwParams=12

@@ -27,4 +27,11 @@ auto f_ParamFormatter::convertToStructure(std::unordered_map<std::string, std::s
   Units(var["units"]);
   Molecules(var["molecules"]);
   MoleculeNames(var["moleculeNames"]);
+
+  //TODO: FUNCTIONS FOR THESE
+  fieldLengths.moleculeDoubles = std::stoi(var["moleculeDoubles"]);
+  fieldLengths.moleculeInts = std::stoi(var["moleculeInts"]);
+  fieldLengths.potentials = std::stoi(var["potentials"]);
+  fieldLengths.vdwParticle = std::stoi(var["vdwParticle"]);
+  fieldLengths.vdwParams = std::stoi(var["vdwParams"]);
 }

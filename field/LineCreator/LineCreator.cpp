@@ -74,17 +74,17 @@ auto f_LineCreator::GetMoleculeList(MoleculeConstructor& MolCon) -> std::vector<
         auto atomList = MolCon.Atoms();
     
     //The number of atoms
-    ret.push_back("ATOMS " + formatter(7, std::to_string(atoms.size())));
+    ret.push_back("ATOMS " + formatter(widths.moleculeInts, std::to_string(atoms.size())));
 
     for (std::string curr_atom : atoms) {
       Atom listOfParts = atomList[curr_atom];
 
       ret.push_back(
-        formatter( 8, listOfParts.name) +
-        formatter(10, std::to_string(listOfParts.mass))   +
-        formatter(10, std::to_string(listOfParts.charge)) +
-        formatter( 5, std::to_string(listOfParts.nrept))   +
-        formatter( 5, std::to_string(listOfParts.ifrz))
+        formatter(widths.vdwParticle, listOfParts.name) +
+        formatter(widths.moleculeDoubles, std::to_string(listOfParts.mass))   +
+        formatter(widths.moleculeDoubles, std::to_string(listOfParts.charge)) +
+        formatter(widths.moleculeInts, std::to_string(listOfParts.nrept))   +
+        formatter(widths.moleculeInts, std::to_string(listOfParts.ifrz))
       );
     }
     
@@ -110,14 +110,14 @@ auto f_LineCreator::GetVDWS(std::vector<std::string> potentialPairs) -> std::vec
     std::string at2 = potentialPairs[0].substr(potentialPairs[0].find("_")+1, std::string::npos);
 
     //The atom pair
-    currentLine = currentLine + formatter(6, at1) + formatter(6, at2);
+    currentLine = currentLine + formatter(widths.vdwParticle, at1) + formatter(widths.vdwParticle, at2);
 
     //The potential 
-    currentLine = currentLine + formatter(8, curr.name);
+    currentLine = currentLine + formatter(widths.potentials, curr.name);
 
     //Loop through the numbers
     for (int i = 0; i < curr.numVariables; i++) {
-      currentLine = currentLine + formatter(12, std::to_string(curr.parameters[i]));
+      currentLine = currentLine + formatter(widths.vdwParams, std::to_string(curr.parameters[i]));
     }
 
     ret.push_back(currentLine);
