@@ -64,16 +64,24 @@ The `Standard` sections controls any variables that are specific to all input fi
 
 Levcfg outlines what vectors per atom will appear in the config file
 - levcfg : the options for this:
+    
     => COORDS
-    => COORDS_VELS
+    
+    => COORDS_VELS 
+
     => COORDS_VELS_FORCES
 
 Imcon outlines what type of boundary will be used
 - Imcon : the options for this:
+
     => NO_PBC
+
     => CUBIC
+
     => ORTHORHOMBIC
+
     => PARALLELEPIPED
+
     => XYPARALLELOGRAM
 
 - Vector1, Vector2, Vector3 : the three vectors which will outline the region where particles will be considered
@@ -85,8 +93,11 @@ Imcon outlines what type of boundary will be used
 
 XYZGEN details what generation method will be used for each vector 
 gen_position, gen_velocity, gen_force : the options are 
+
     => DISABLED 
+
     => RANDOM_UNIFORM
+
     => UNIFORM
 
 - randSeed_Angle : the number used as a seed for generating the angles generated for each molecule
@@ -104,9 +115,13 @@ If the distribution type for the below variables isnt RANDOM_UNIFORM, these will
 Units are the chosen units that outputs from DL_POLY will be in 
 - units : the options are
     => EV
+
     => KCAL
+
     => KJ
+
     => K 
+
     => INTERNAL
 
 - vdwInteracts : this is an array of all desired VDW interactions, with filenames matching those in `parameters/vdws` which will be explained later
