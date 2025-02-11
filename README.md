@@ -138,3 +138,18 @@ Note: [ATOM] is not a substitute, you must write those 6 characters at the begin
     [ATOM],<character>, <mass>, <charge>, <nrept>, <ifrz>
 Example: [ATOM],WT, 90.076, 0.0, 1, 0
 
+### Interactions
+This will outline how non-molecule atoms will interact, and by what potential with what parameters, listed in `parameters/vdws`
+
+Important to note: The title of the vdw interaction MUST follow the format of 
+    `[atomLabel]_[atomLabel]`
+
+Once again, comments are allowed with // at the start of the line
+
+The first two lines must detail the potentail type and the number of parameters respectively. Then, every subsequent line is just a number
+    Name=[potential type, all avaiable in DL_POLY docs]
+    Count=[num variables]
+    [Var1]
+    [Var2]
+    [Var3]
+    [etc]
