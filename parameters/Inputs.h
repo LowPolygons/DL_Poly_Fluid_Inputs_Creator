@@ -66,12 +66,12 @@ struct ConfigInputs {
   // Bounding Region calculations
   
   // Only have one enabled (if there are varying bounding region calculations)
-  bool useBoundingSpheres = true;
+  //bool useBoundingSpheres = true;
     // WARNING: Allowing this to be true may result in either simulation explosion or lack of reproduceabiity in results
     // If true  -> possibility for molecules/bonds to intersect or overlap each other
     // If false -> forces a totally uniform distribution and ensures that the positions of generated points on the grid
     //             cannot possibly overlap by ensuring each point is at least 2x the largest bounding-sphere radius away from any other point
-    bool allowIntersectingBoundingSpheres = false;
+    //bool allowIntersectingBoundingSpheres = false;
     // If this is exactly 1, it means that some particles could touch in an exact scenario. This forces the bounding sphere to be slightly larger
     double boundingSphereMultiplier = 1.1;
 
