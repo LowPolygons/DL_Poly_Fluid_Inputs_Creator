@@ -63,7 +63,7 @@ The `Standard` sections controls any variables that are specific to all input fi
 #### Config Inputs
 
 Levcfg outlines what vectors per atom will appear in the config file
-- levcfg : the options for this
+levcfg : the options for this
     
     => COORDS
     
@@ -72,7 +72,7 @@ Levcfg outlines what vectors per atom will appear in the config file
     => COORDS_VELS_FORCES
 
 Imcon outlines what type of boundary will be used
-- Imcon : the options for this 
+Imcon : the options for this 
 
     => NO_PBC
 
@@ -113,7 +113,8 @@ If the distribution type for the below variables isnt RANDOM_UNIFORM, these will
 #### Field Inputs
 
 Units are the chosen units that outputs from DL_POLY will be in 
-- units : the options are
+units : the options are
+
     => EV
 
     => KCAL
