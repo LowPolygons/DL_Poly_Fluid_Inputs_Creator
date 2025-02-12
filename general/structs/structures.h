@@ -46,9 +46,6 @@ struct ConfigParameters {
   std::array<int, 3> vec3;
   int particleType;
   int index;
-  int pos_rand_seed; //This is the exception: this is the random seed for the number generation
-  int vel_rand_seed;
-  int fce_rand_seed;
 };
 
 //---------------------------//

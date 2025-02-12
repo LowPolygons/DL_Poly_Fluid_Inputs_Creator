@@ -1,8 +1,8 @@
-First line is ignored => title=characterLength:defaultValue
+First line is ignored => title=characterLength
 description=45
 levcfg=5
 imcon=5
-//TODO: In an eventual refactor, this will be the number of molecules instead
+
 numparticles=7
 
 //First unit vector
@@ -37,3 +37,7 @@ fcez=16
 
 particleType=5
 index=8
+
+
+
+
