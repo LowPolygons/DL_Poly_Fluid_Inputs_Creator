@@ -16,7 +16,7 @@ struct ConfigInputs {
 
   // Input the number of molecules to be generated in total, not the number of particles
   // That can be calculated in the program
-  int numOfMolecules = 20000;
+  int numOfMolecules = 1000;
 
   // These are all the molecules that are to be used in the config file
   // The order matters 

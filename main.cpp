@@ -51,7 +51,7 @@ int main () {
   Config::getForceValues(inputs, organiser);
 
   //Line Creator and Writer here
-  auto writer = Writer("results/config.txt");
+  auto writer = Writer("results/CONFIG");
   
   LineCreator creator(
     organiser.WidthsInFile(), 
@@ -107,7 +107,7 @@ int main () {
 
   auto fieldLines = lines.CreateLines(molCon, inputs.vdwInteracts);
 
-  Writer fieldWriter = Writer("results/field.txt");
+  Writer fieldWriter = Writer("results/FIELD");
 
 
   
