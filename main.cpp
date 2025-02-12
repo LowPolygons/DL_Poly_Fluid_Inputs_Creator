@@ -86,7 +86,6 @@ int main () {
   //hold them
   std::vector<Potential> potentials = manager.UsableVDWs();
 
-  std::cout << moleculeVector.size() << std::endl;
   //Create the line creator to format the lines
   f_LineCreator lines(
     fieldParams,

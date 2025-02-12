@@ -46,8 +46,6 @@ auto MoleculeConstructor::FormatAtomDescription(std::string line) -> void {
   curr.ifrz = std::stoi(line.substr(index5+1, std::string::npos-index5-1));
 
   atoms[curr.name] = curr;
-
-  std::cout << "NAME:" << curr.name << ":END" << std::endl;
 }
 
 auto MoleculeConstructor::FormatLinesToValues(std::vector<std::string> linesToFilter, std::string moleculeName) -> void {
