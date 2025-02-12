@@ -11,7 +11,7 @@
 #include "../general/moleculeConstructor/MoleculeConstructor.h"
 #include "matrix/Matrix.h"
 #include "moleculePlacer/MoleculePlacer.h"
-#include "inputVerifier/InputVerifier.h"
+#include "../general/inputVerifier/InputVerifier.h"
 #include "../general/parameterReader/ParameterReader.h"
 
 #include "../parameters/Inputs.h"

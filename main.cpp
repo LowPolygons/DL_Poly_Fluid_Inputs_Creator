@@ -10,7 +10,7 @@
 #include "general/moleculeConstructor/MoleculeConstructor.h"
 #include "config/matrix/Matrix.h"
 #include "config/moleculePlacer/MoleculePlacer.h"
-#include "config/inputVerifier/InputVerifier.h"
+#include "general/inputVerifier/InputVerifier.h"
 
 #include "parameters/Inputs.h"
 
@@ -26,6 +26,9 @@ int main () {
 
   ConfigInputs inputs;
   //Run a validator on the inputs to ensure the certain conditions are met (log all issues before closing)
+
+  std::cout << "[INFO] Verifying Inputs" << std::endl;
+
   InputVerifier inputValidator(inputs);
   inputValidator.ConductValidation();
 
@@ -35,9 +38,11 @@ int main () {
   //Basic values that can just be immediately read and interpreted (CONFIG.H) 
   Config::initBasicOrganiserVals(inputs, organiser);
 
+  std::cout << "[INFO] Building Molecules" << std::endl;
   //Generate the molcule map
   auto moleculeVector = Config::generateMolecules(inputs, organiser);
-
+  
+  std::cout << "[INFO] Forming Vectors" << std::endl;
   //Get the position values based on inputs (CONFIG.H)
   Config::getPositionValues(inputs, organiser, moleculeVector);
   //Get the velocity values assuming, if they are desired (CONFIG.H)
@@ -63,9 +68,11 @@ int main () {
     organiser.Forces()
   );
 
+  std::cout << "[INFO] Writing config" << std::endl;
   creator.CreateLines(writer);
   writer.writeFile();
 
+  std::cout << "[INFO] Config written" << std::endl;
 
   //==================================// 
   //               Field              //
@@ -93,7 +100,7 @@ int main () {
   );
 
   //TODO: THIS IS REDUNDANT CODE
-  //
+  
   //Takes the molecule file names and turns them into Molecule templates
   MoleculeConstructor molCon(inputs.molecules);
   molCon.GenerateMolecules();
@@ -102,10 +109,17 @@ int main () {
 
   Writer fieldWriter = Writer("results/field.txt");
 
+
+  
   for (auto curr : fieldLines) {
     fieldWriter.addLine(curr);
   }
+  
+  std::cout << "[INFO] Writing Field" << std::endl;
 
   fieldWriter.writeFile();
+
+  std::cout << "[INFO] Field Written" << std::endl;
+
   return 0;
 }
